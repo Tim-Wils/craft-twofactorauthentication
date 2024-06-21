@@ -22,7 +22,7 @@
     <p>{{ 'To disable two-factor authentication, click the button below.'|t('two-factor-authentication') }}</p>
 
     <form id="turnoff-form" action="{{ actionUrl('two-factor-authentication/settings/turn-off') }}" method="post" accept-charset="UTF-8">
-        {{ csrfInput() }}
+        {{ csrfInput({async:false}) }}
 
         <input id="submit" class="btn submit icon insecure" type="submit" value="{{- "I don't want two-factor authentication"|t('two-factor-authentication') -}}">
     </form>
@@ -77,7 +77,7 @@
     } %}
 
     <form {{ attr(formAttributes) }}>
-        {{ csrfInput() }}
+        {{ csrfInput({async:false}) }}
 
         {{ forms.textField({
             id: "authenticationCode",

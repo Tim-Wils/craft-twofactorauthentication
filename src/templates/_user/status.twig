@@ -10,7 +10,7 @@
             {% if enabled %}
                 <form id="turnoff-form" method="post" accept-charset="UTF-8">
                     <input type="hidden" name="action" value="two-factor-authentication/users/turn-off">
-                    {{ csrfInput() }}
+                    {{ csrfInput({async:false}) }}
                     <input type="hidden" name="userId" value="{{ user.id }}">
 
                     <button class="btn submit" type="submit" data-icon="insecure">
