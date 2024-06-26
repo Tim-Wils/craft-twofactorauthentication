@@ -114,8 +114,10 @@ class Request extends Component
 
         $pathInfo = $request->getPathInfo();
 
+        $backEndPathAllow = array_merge(['actions/users/session-info'], $settings->backEndPathAllow);
+
         $isAllowed = false;
-        foreach ($settings->backEndPathAllow as $path) {
+        foreach ($backEndPathAllow as $path) {
             if ($this->isRegex("/$path/i")) {
                 if (preg_match("/$path/i", $pathInfo)) {
                     $isAllowed = true;
